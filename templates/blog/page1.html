@@ -1,0 +1,7 @@
+{% extends 'maintemplate.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/style.css' %} ">
+
+{% block content %}
+    <img src="{{media_url}}images/{{imageName}}" class="img-class" alt="یک تصویر">
+{% endblock %}

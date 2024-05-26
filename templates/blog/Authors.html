@@ -1,0 +1,36 @@
+{% extends 'maintemplate.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/style.css' %} ">
+
+{% block content %}
+    <h1 style="margin:20px auto" class="blog">اســــــامی</h1>
+            <title>
+        {% block title %}
+         نویسندگان
+        {% endblock %}
+
+            </title>
+        <table class="blog" border="2px" width="500px" dir="rtl">
+
+            <th>عکس</th>
+            <th>نام</th>
+            <th>فامیلی</th>
+            <th>سن</th>
+
+            </tr>
+             {% for author in authors %}
+            <tr>
+            <td>
+              <img src="{{media_url}}images/Person/{{author.image_name}}"
+                   class="authors_image" alt="profile">
+            </td>
+            <td><h4>{{author.name}}</h4></td>
+            <td><h4>{{author.family}}</h4></td>
+            <td><h4>{{author.age}}</h4></td>
+            <td>
+                <a href="author/{{author.id}}">جزئیات</a>
+            </td>
+          </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

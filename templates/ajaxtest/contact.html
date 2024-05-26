@@ -1,0 +1,35 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+   <h1 style="text-align: right">فرم ثبت پیام</h1>
+    <form method="POST" class="form2"  id="contactform">
+        {% csrf_token %}
+        {{form.as_table}}
+        <input type="submit" value="ارسال پیام">
+    </form>
+
+    <script type="text/javascript">
+        {#    صفحه کامل لود شد  #}
+        $(document).ready(function () {
+            {# اگر محتوای json داره بهم بده#}
+            {#alert($(this).serialize())#}
+            $('#contactform').submit(function () {
+                $.ajax({
+                    type: "POST",
+                    url: "{% url 'contact' %}",
+                    data: $(this).serialize(),
+                    success:function (data) {
+                        alert("کاربر "+data.name+" پیام شما دریافت شد");
+                    }
+
+                });
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+
+
+{% block title %}
+تماس با ما
+{% endblock %}

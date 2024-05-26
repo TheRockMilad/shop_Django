@@ -1,0 +1,29 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+<table class="table table-striped table-bordered" >
+    <tr>
+        <td>عکس</td>
+        <td>عنوان</td>
+        <td>متن مقاله</td>
+        <td>فعال یا غیرفعال بودن</td>
+    </tr>
+    {% for blog in blogs %}
+    <tr>
+        <td>
+            <img src="{{media_url}}{{blog.main_img}}" class="class-100" alt="blog.main_img" >
+        </td>
+        <td>{{blog.title}}</td>
+        <td>{{blog.descrioption}}</td>
+        <td>{{blog.is_active}}</td>
+    </tr>
+    {% endfor %}
+</table>
+<h1>{{message}}</h1>
+<h1>{{errors}}</h1>
+{% endblock content %}
+
+
+{% block title %}
+صفحه ثبت نام
+{% endblock title %}

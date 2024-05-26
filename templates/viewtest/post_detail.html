@@ -1,0 +1,25 @@
+{% extends 'maintemplate.html' %}
+
+
+{% block content %}
+<h4 style = 'text-align:Center;'>
+    <a href="{% url 'ShowList'%}">برگشت</a>
+</h4>
+<table class ="table table-striped table-bordered table-hover table-width60">
+    <tr>
+      <td style="border: 1px solid black;">عنوان</td>
+      <td style="border: 1px solid black;">توضیحات</td>
+      <td style="border: 1px solid black;">وضعیت</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid black;"><p>{{object.title}}</P></td>
+      <td style="border: 1px solid black;"><p>{{object.description}}</P></td>
+      <td style="border: 1px solid black;"><p>{{object.is_active}}</P></td>
+    </tr>
+  </table>
+{% endblock %}
+    
+
+{% block title %}
+تست ویو ها
+{% endblock title %}  

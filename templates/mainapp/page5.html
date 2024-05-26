@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>صفحه پنجم</title>
+    <style>
+        li{
+            color:#f00
+        }
+
+    </style>
+</head>
+<body>
+
+    <ul>
+    {% for item in names %}
+        <li>{{item}}</li>
+    {% endfor %}
+    </ul>
+
+    
+    {% comment %} 
+    {% for i in range %}
+         <div>hello_{{i}}_#</div>
+    {% endfor %} 
+    {% endcomment %}
+
+    
+    {% comment %} {% for i in list2 %}
+        <h1>{{i}}</h1>
+    {% empty  %}
+    <h1>list is empty</h1>
+    {% endfor %} {% endcomment %}
+
+
+
+    {% for i in range %}
+    {% comment %} 
+    شمارنده میشه forloop.counter
+    اولی forloop.first
+    اخری forloop.last 
+    {% endcomment %}
+         <div>hello_{{forloop.first}}</div>
+
+    {% endfor %} 
+
+
+</body>
+</html>

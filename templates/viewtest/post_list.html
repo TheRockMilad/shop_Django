@@ -1,0 +1,69 @@
+{% extends 'maintemplate.html' %}
+
+
+{% block content %}
+    <h3 style='text-align:Center;'>
+        <a href= "{% url 'PostCreate' %}" style="background-color:green; color: White">درج مقاله جدید</a>
+    </h3>
+
+    <table class="table table-striped table-bordered table-hover table-width60">
+        <tr>
+            <th>عنوان</th>
+            <th>توضیحات</th>
+            <th>وضعیت</th>
+            <th></th>
+
+        </tr>
+        {% for post in object_list %}
+            <tr>
+                <th>{{ post.title }}</th>
+                <th>{{ post.description }}</th>
+                <th>{{ post.is_active }}</th>
+                <th>
+                    <a href="{% url 'PostDetail' post.id %}" class='my-link-detail'>جزئیات</a>
+                    <a href="{% url 'PostDelete' post.id %}" class='my-link-delete'>حذف</a>
+                    <a href="{% url 'PostUpdate' post.id %}" class='my-link-update'>ویرایش</a>
+                </th>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="pagination-container">
+    <div class="pagination">
+        <a href="?page=1">اولین</a>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}">قبلی</a>
+        {% endif %}
+
+        {% if page_obj.number|add:'-3' > 2 %}
+            <a href="#" class="disabled">...</a>
+        {% endif %}
+
+        <!--Pager-->
+        {% for i in page_obj.paginator.page_range %}
+            {% if page_obj.number == i %}
+                <a href="?page={{ i }}" class="active">{{ i }}</a>
+            {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+                <a href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+        {% endfor %}
+        <!--end Pager-->
+
+        {% if page_obj.number|add:'3' < page_obj.paginator.num_pages|add:'-1' %}
+            <a href="#" class="disabled">...</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">بعدی</a>
+        {% endif %}
+
+        <a href="?page={{ page_obj.paginator.num_pages }}">آخرین</a>
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+{% block title %}
+    تست ویو ها
+{% endblock title %} 

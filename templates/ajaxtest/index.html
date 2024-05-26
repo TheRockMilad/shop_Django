@@ -1,0 +1,42 @@
+{% extends 'maintemplate.html' %}
+
+
+
+{% block content %}
+    <h3 class="blog">لیست پست ها</h3>
+    {% for post in posts %}
+        <h3>{{ post.title }}</h3>
+        <h3>{{ post.is_axtive }}</h3>
+        <p>
+            {{ post.caption }}
+        </p>
+        <a class="likebtn btn btn-primary" id="btn_like{{ post.id }}" data-catid="{{ post.id }}">لایک</a>
+        <hr>
+    {% endfor %}
+
+    <script>
+        {#$('#btn_like')#}
+            {#alert($(this).attr("data-catid"))#}
+        $('.likebtn').click(function () {
+            const id = $(this).attr("data-catid");
+            $.ajax({
+                type: "GET",
+                url : "/ajaxtest/like/",
+                data : {
+                   post_id : id
+                },
+                {#پاسخی که میخواد از سرور برگردونه#}
+                success: function(data){
+                {# تغییر رنگ #}
+                    $('#btn_like'+id).removeClass('btn-primary');
+                    $('#btn_like'+id).addClass('btn-success');
+                }
+            });
+        });
+    </script>
+{% endblock %}
+
+
+{% block title %}
+    پست ها
+{% endblock %}

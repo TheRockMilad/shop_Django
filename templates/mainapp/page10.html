@@ -1,0 +1,31 @@
+{% extends 'maintemplate.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <title>صفحه نمایش تصاویر</title>
+</head>
+<body dir="rtl">
+    {% block content %}
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#">Disabled</a>
+          </li>
+        </ul>
+        <!--    <img src="{{media_url}}images/{{imagename}}" alt="یک تصویر">-->
+<!--        {% for image in imageList %}-->
+        <img src="{{media_url}}images/{{imageName}}" class="img-class" alt="یک تصویر">
+<!--        {% endfor %}-->
+{% endblock %}
+</body>
+</html>

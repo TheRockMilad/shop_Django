@@ -1,0 +1,27 @@
+{% extends 'maintemplate.html' %}
+
+
+
+
+{% block content %}
+    <form method='post'>
+    {% csrf_token %}
+    <h3 style="text-align: center"> Do you want delete
+        <span style = "color:red;"> 
+            {{object.title}}
+        </span></h3>
+    <br>
+        <input type="submit" value='بله' class="botton-delete">
+    </br>
+    <div class="center">
+         <a href="{% url 'ShowList' %}" class="my-link-create">برگشت به لیست</a>
+         <a href="{% url 'PostUpdate' post.id %}" class="my-link-update">ویرایش</a>
+    </div>
+{% endblock %}
+
+
+
+
+{% block title %}
+تست ویو ها
+{% endblock title %} 

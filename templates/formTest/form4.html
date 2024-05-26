@@ -1,0 +1,16 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+<h4 class="blog-title"> آموزش کار با فرمها</h4>
+<div class="form-box">
+    <form action="hatm.html" method="get">
+        {% csrf_token %}
+        <table STYLE="margin:10px">
+            <tr>
+                {{form.as_table}}
+             </tr>
+        </table>
+        <input type="submit" value="ثبت نام">
+    </form>
+</div>
+{% endblock %}

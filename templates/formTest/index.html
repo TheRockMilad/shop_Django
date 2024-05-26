@@ -1,0 +1,12 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+<h4 class="blog-title"> آموزش کار با فرمها</h4>
+    {% for post in posts %}
+        <div>
+            <h2>{{post.title}}</h2>
+            <p>{{post.description}}</p>
+        </div>
+    {% endfor %}
+
+{% endblock %}

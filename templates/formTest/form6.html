@@ -1,0 +1,30 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+    <h4 class="blog-title"> آموزش کار با فرمها</h4>
+
+    {% if form.errors %}
+    <div style="height:100px; width:60%; margin:10px auto; background-color: #a13232;">
+        <ul style="text-align: right">
+            {% for error,message in form.errors.items %}
+                <li>{{message}}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+
+    <div class="form-box">
+        <form action="" method="post" >
+            {% csrf_token %}
+            <table>
+                {{forms_set.as_table}}
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="ثبت نام">
+                    </td>
+                 </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}

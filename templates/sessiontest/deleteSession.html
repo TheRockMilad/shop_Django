@@ -1,0 +1,14 @@
+{% extends 'maintemplate.html' %}
+
+{% block content %}
+    {% if flag %}
+        <h2 style="text-align: center">سشن با موفقیت پاک شد</h2>
+        {% else %}
+        <h2 style="text-align: center">سشن موجود نیست</h2>
+    {% endif %}
+{% endblock %}
+
+
+{% block title %}
+Delet Session
+{% endblock %}

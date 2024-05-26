@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>صفحه هفتم </title>
+</head>
+<body>
+    {% comment " کد اجرا میشه و دیگه رشته نیست" %}{% endcomment %}
+    {% comment %} {% autoescape off %}
+    {{mytag}}
+    {% endautoescape %}
+
+     <script>
+    {% autoescape off %}
+           {{myscript}}
+    {% endautoescape %}
+     </script> {% endcomment %}
+
+     {% comment %} {% now "DATE_FORMAT" %} <br>
+     {% now "DATETIME_FORMAT" %} <br>
+     {% now "SHORT_DATE_FORMAT" %} <br>
+     {% now "SHORT_DATETIME_FORMAT" %} <br>
+     {% now "Y-m-d H:i" %} <br> {% endcomment %}
+
+    <a href='/step6/'>صفحه شماره شش </a> 
+    <br>
+    <a href={% url 'template8' %}>صفحه شماره 8</a>
+
+</body>
+</html>
